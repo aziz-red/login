@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تم تسجيل خروجك - عزيز نت</title>
+    <script src="js/theme.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header App Bar -->
+    <div class="app-header">
+        <div class="header-right">
+            <a href="index.html" class="app-icon-btn red-text" data-tooltip="الرئيسية"><i class="fa-solid fa-house"></i></a>
+            <a href="https://wa.me/967739367154" class="app-icon-btn green-text" data-tooltip="تواصل معنا"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="prices.html" class="app-icon-btn yellow-text" data-tooltip="الباقات والأسعار"><i class="fa-solid fa-dollar-sign"></i></a>
+        </div>
+        <div class="header-left">
+            <label class="toggle-switch-wrapper">
+                الوضع الليلي
+                <div class="toggle-switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card-container">
+
+        <div class="shake-icon" style="background: linear-gradient(135deg, #5A3AA6, #9c5ef5);">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
+
+        <div class="text-danger" style="color: var(--text-purple); font-size: 22px; margin-bottom: 5px;">
+            وداعاً! تم تسجيل خروجك بنجاح
+        </div>
+
+        <div class="text-normal">نأمل عودتك قريباً ❤️‏ — اضغط لتسجيل الدخول مجدداً</div>
+
+        <form action="$(link-login)" name="login" onSubmit="return openLogin()">
+            <input type="hidden" name="erase-cookie" value="on">
+            <button type="submit" class="btn-primary btn-red" style="margin-bottom: 20px;">
+                دخول
+            </button>
+        </form>
+
+        <div class="footer-text">
+            تطوير <span class="green">عزيز الشرعبي</span> © 2026
+            <span class="yellow">[ عزيز نت نسعى دوماً لإرضاء عملائنا للتواصل 739367154 ]</span>
+        </div>
+
+    </div>
+
+    <script src="js/demo.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        function openLogin() {
+            if (window.name != 'hotspot_logout') return true;
+            var url = '$(link-login)';
+            if (window.currentTheme === 'dark') {
+                url += (url.indexOf('?') === -1 ? '?' : '&') + 'theme=dark';
+            }
+            open(url, '_blank', '');
+            window.close();
+            return false;
+        }
+    </script>
+</body>
+
+</html>

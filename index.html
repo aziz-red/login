@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - عزيز نت</title>
+    <script src="js/theme.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header App Bar -->
+    <div class="app-header">
+        <div class="header-right">
+            <a href="javascript:void(0)" onclick="toggleModal('locationsModal', true)" class="app-icon-btn red-text" data-tooltip="نقاط البيع"><i
+                    class="fa-solid fa-location-dot"></i></a>
+            <a href="https://wa.me/967739367154" class="app-icon-btn green-text" data-tooltip="تواصل معنا"><i
+                    class="fa-brands fa-whatsapp"></i></a>
+            <a href="prices.html" class="app-icon-btn yellow-text" data-tooltip="الباقات والأسعار"><i class="fa-solid fa-dollar-sign"></i></a>
+            <a href="contact.html" class="app-icon-btn" style="color:#38bdf8;" data-tooltip="التواصل"><i class="fa-solid fa-headset"></i></a>
+            <a href="developer.html" class="app-icon-btn purple-text" data-tooltip="المطور"><i class="fa-solid fa-user-ninja"></i></a>
+        </div>
+        <div class="header-left">
+            <label class="toggle-switch-wrapper">
+                الوضع الليلي
+                <div class="toggle-switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <!-- Time Bar -->
+    <div class="time-bar" id="datetimeTicker">
+        <i class="fa-regular fa-clock" style="margin-left:6px; opacity:0.7;"></i>جاري تحميل الوقت...
+    </div>
+
+    <!-- Main Card -->
+    <div class="card-container">
+
+        <!-- Network Title -->
+        <div class="network-title">
+            <span class="wifi-icon"><i class="fa-solid fa-wifi"></i></span>
+            <h1>عزيز نت</h1>
+            <p>خدمة إنترنت سريعة وموثوقة • سجل دخولك الآن</p>
+        </div>
+
+        <!-- Marquee Box -->
+        <div class="warning-marquee">
+            <span class="badge">NEW <i class="fa-solid fa-certificate"></i></span>
+            <div class="marquee-track">
+                <span class="marquee-content">عزيز نت ترحب بكم .. فأجعل إستخدامك للإنترنت فيما يرضي الله عز وجل !!</span>
+            </div>
+        </div>
+
+        <!-- System Error -->
+        $(if error)
+        <div class="error-msg">
+            <i class="fa-solid fa-circle-exclamation"></i> $(error)
+        </div>
+        $(endif)
+
+        <!-- Login Form -->
+        <form name="login" action="$(link-login-only)" method="post" onSubmit="return doLogin()">
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
+            <input type="hidden" name="password" />
+
+            <!-- Speed Selection -->
+            <div class="input-group">
+                <div class="select-wrapper">
+                    <select name="profile" class="styled-select">
+                        <option value="high" selected>سرعة عالية</option>
+                        <option value="1mb">1 ميجا - تصفح</option>
+                        <option value="2mb">2 ميجا - يوتيوب</option>
+                        <option value="open">سرعة مفتوحة</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-arrow"></i>
+                </div>
+            </div>
+
+            <!-- Floating Label Username Input -->
+            <div class="input-group floating-group">
+                <input type="text" name="username" id="floatingInput" class="dotted-input" value="$(username)" required autocomplete="off" placeholder=" ">
+                <label for="floatingInput">أدخل الكرت</label>
+            </div>
+
+            <!-- Remember Me -->
+            <label class="remember-me">
+                تذكرني
+                <div class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="slider green-bg round"></span>
+                </div>
+            </label>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-primary">
+                تسجيل الدخول
+            </button>
+        </form>
+
+        <div class="footer-text">
+            تطوير <span class="green">عزيز الشرعبي</span> © 2026
+            <span class="yellow">[ عزيز نت نسعى دوماً لإرضاء عملائنا للتواصل 739367154 ]</span>
+        </div>
+
+    </div>
+
+    <!-- Locations Modal -->
+    <div class="modal-overlay" id="locationsModal"
+        onclick="if(event.target == this) toggleModal('locationsModal', false)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon-circle"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="modal-title">نقاط بيع الكروت:</div>
+            </div>
+            <ul class="location-list">
+                <li class="location-item">0 - المركز الرئيسي ( بقالة فاروق القباطي ) ..</li>
+                <li class="location-item">1 - وجميع البقالات المجاورة للشبكة.</li>
+                <li class="location-item">2 - ( واثق ماركت ).</li>
+                <li class="location-item">3 - بقالة : ( العصواني ).</li>
+            </ul>
+            <button class="p-btn" onclick="toggleModal('locationsModal', false)"
+                style="margin-top:15px; width:100%; padding:10px;">إغلاق</button>
+        </div>
+    </div>
+
+
+    <script src="js/demo.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        function doLogin() {
+            document.login.password.value = document.login.username.value;
+            return true;
+        }
+
+        function toggleModal(id, show) {
+            document.getElementById(id).classList.toggle('active', show);
+        }
+    </script>
+</body>
+
+</html>

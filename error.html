@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطأ في رمز الدخول - عزيز نت</title>
+    <script src="js/theme.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header App Bar -->
+    <div class="app-header">
+        <div class="header-right">
+            <a href="index.html" class="app-icon-btn red-text" data-tooltip="الرئيسية"><i
+                    class="fa-solid fa-house"></i></a>
+            <a href="https://wa.me/967739367154" class="app-icon-btn green-text" data-tooltip="تواصل معنا"><i
+                    class="fa-brands fa-whatsapp"></i></a>
+            <a href="prices.html" class="app-icon-btn yellow-text" data-tooltip="الباقات والأسعار"><i
+                    class="fa-solid fa-dollar-sign"></i></a>
+            <a href="developer.html" class="app-icon-btn purple-text" data-tooltip="المطور"><i
+                    class="fa-solid fa-user-ninja"></i></a>
+        </div>
+        <div class="header-left">
+            <label class="toggle-switch-wrapper">
+                الوضع الليلي
+                <div class="toggle-switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card-container">
+
+        <div class="shake-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <h1 style="font-size:24px; font-weight:800; margin-bottom:8px; color: var(--text-red);">عذراً، حدث خطأ!</h1>
+        <p style="font-size:15px; color:var(--text-muted); margin-bottom:22px; font-weight:700;">لم نتمكن من تسجيل دخولك
+            إلى <strong>عزيز نت</strong></p>
+
+        <div class="error-msg" id="errorNotice">
+            <i class="fa-solid fa-bug"></i>
+            <span>$(error)</span>
+        </div>
+
+        <a href="$(link-login)" class="btn-primary btn-red"
+            style="width: 100%; text-decoration:none; display:flex; align-items:center; justify-content:center;">
+            العودة لصفحة الدخول
+            <i class="fa-solid fa-arrow-right" style="margin-right: 8px;"></i>
+        </a>
+
+        <div class="footer-text">
+            تطوير <span class="green">عزيز الشرعبي</span> © 2026
+            <span class="yellow">[ عزيز نت نسعى دوماً لإرضاء عملائنا للتواصل 739367154 ]</span>
+        </div>
+
+    </div>
+
+    <script src="js/demo.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
