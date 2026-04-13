@@ -8,7 +8,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // Check if we are running locally (file:// or localhost)
-    var isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    var isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.indexOf('github.io') !== -1;
 
     if (isLocal) {
         if (window.console && console.log) console.log("🛠️ Running in Local Demo Mode (MikroTik Simulator)");
