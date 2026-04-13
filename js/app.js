@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    var applyTheme = function (theme) {
+    var applyTheme = function (theme, showToastNotify) {
         var isDark = (theme === 'dark');
         root.setAttribute('data-theme', theme);
         toggleClass(root, 'dark-mode', isDark);
@@ -91,21 +91,23 @@ document.addEventListener('DOMContentLoaded', function () {
         storageSafe.set('darkMode', isDark ? 'enabled' : 'disabled');
         syncLinksWithTheme(theme);
 
-        // Toast Notification
-        showToast(
-            isDark ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>',
-            isDark ? 'تم التفعيل: الوضع الليلي' : 'تم التفعيل: الوضع النهاري',
-            isDark ? 'toast-dark' : 'toast-light'
-        );
+        // Toast Notification (only if requested)
+        if (showToastNotify) {
+            showToast(
+                isDark ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>',
+                isDark ? 'تم التفعيل: الوضع الليلي' : 'تم التفعيل: الوضع النهاري',
+                isDark ? 'toast-dark' : 'toast-light'
+            );
+        }
     };
 
-    // Initial theme apply
-    applyTheme(window.currentTheme || 'light');
+    // Initial theme apply (skip toast on load)
+    applyTheme(window.currentTheme || 'light', false);
 
     if (darkModeToggle) {
         darkModeToggle.addEventListener('change', function () {
             var theme = darkModeToggle.checked ? 'dark' : 'light';
-            applyTheme(theme);
+            applyTheme(theme, true);
         });
     }
 
