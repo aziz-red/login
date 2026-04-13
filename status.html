@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معلومات الاشتراك - عزيز نت</title>
+    <script src="js/theme.js"></script>
+    <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header App Bar -->
+    <div class="app-header">
+        <div class="header-right">
+
+            <a href="https://wa.me/967739367154" class="app-icon-btn green-text" data-tooltip="تواصل معنا"><i
+                    class="fa-brands fa-whatsapp"></i></a>
+            <a href="prices.html?origin=status" class="app-icon-btn yellow-text" data-tooltip="الباقات والأسعار"><i
+                    class="fa-solid fa-dollar-sign"></i></a>
+            <a href="developer.html" class="app-icon-btn purple-text" data-tooltip="المطور"><i
+                    class="fa-solid fa-user-ninja"></i></a>
+        </div>
+        <div class="header-left">
+            <label class="toggle-switch-wrapper">
+                الوضع الليلي
+                <div class="toggle-switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card-container">
+
+        <div class="status-title">
+            <i class="fa-solid fa-signal" style="margin-left:8px; color: var(--bar-blue);"></i>
+            تفاصيل الحساب
+            <p style="font-size: 13px; color: var(--text-muted); margin-top:4px; font-weight:700;">عزيز نت • النسبة
+                المستخدمة من رصيدك</p>
+        </div>
+
+        <!-- User Info Box -->
+        <div class="user-info-box">
+            <div class="user-info-item">
+                <span class="u-label"><i class="fa-solid fa-user" style="margin-left:4px;"></i>المستخدم</span>
+                <span class="u-value">$(username)</span>
+            </div>
+            <div class="user-info-divider"></div>
+            <div class="user-info-item">
+                <span class="u-label"><i class="fa-solid fa-network-wired" style="margin-left:4px;"></i>عنوان IP</span>
+                <span class="u-value">$(ip)</span>
+            </div>
+            <div class="user-info-divider"></div>
+            <div class="user-info-item">
+                <span class="u-label"><i class="fa-solid fa-ethernet" style="margin-left:4px;"></i>MAC</span>
+                <span class="u-value" style="font-size:11px;">$(mac)</span>
+            </div>
+        </div>
+
+        <!-- Refresh Countdown Bar -->
+        <div class="refresh-countdown-bar">
+            <div class="refresh-bar-label">
+                <i class="fa-solid fa-rotate"></i>
+                <span>تحديث تلقائي خلال <strong id="refreshSecondsLeft">--</strong> ثانية</span>
+            </div>
+            <div class="refresh-bar-track">
+                <div class="refresh-bar-fill" id="refreshBarFill" style="width:0%"></div>
+            </div>
+        </div>
+
+        <a href="http://10.10.10.10/" class="top-action-btn" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">
+            <i class="fa-solid fa-couch" style="margin-left:8px;"></i>إضغط هنا لدخول الإستراحة مجاناً
+        </a>
+
+        <!-- Dynamic Data Big Bar -->
+        <div class="big-progress-container">
+            <div class="big-progress-inner">
+                <div class="big-progress-fill" style="width: 17%;">
+                </div>
+                <!-- Adding the text overlay for visual match -->
+                <div class="big-progress-text">17%</div>
+            </div>
+        </div>
+
+        <!-- Data Breakdown -->
+        <div class="stat-box red">
+            <i class="fa-solid fa-download stat-icon"></i>
+            <div class="stat-content">
+                <div class="stat-label">المتبقي من الرصيد</div>
+                <div class="stat-value">$(bytes-out-nice)</div>
+            </div>
+        </div>
+
+        <div class="stat-box green">
+            <i class="fa-solid fa-hourglass-half stat-icon"></i>
+            <div class="stat-content">
+                <div class="stat-label">الوقت المستخدم</div>
+                <div class="stat-value">$(uptime)</div>
+            </div>
+        </div>
+
+        <div class="stat-box blue" style="margin-bottom: 20px;">
+            <i class="fa-regular fa-clock stat-icon"></i>
+            <div class="stat-content">
+                <div class="stat-label">المتبقي من الوقت</div>
+                <div class="stat-value">$(session-time-left)</div>
+            </div>
+        </div>
+
+        <!-- Logout / Actions - Side by Side -->
+        <div style="display: flex; gap: 12px; width: 100%; max-width: 520px; margin: 0 auto 12px auto;">
+            <form action="$(link-logout)" name="logout" onSubmit="return openLogout()" style="flex: 1;">
+                <input type="hidden" name="erase-cookie" value="on">
+                <button type="submit" class="btn-purple-outline" style="margin: 0; width: 100%;">
+                    خروج مؤقت
+                </button>
+            </form>
+            <form action="$(link-login)" name="login" style="flex: 1;">
+                <button type="submit" class="btn-purple-outline" style="margin: 0; width: 100%;">
+                    تسجيل بكرت آخر
+                </button>
+            </form>
+        </div>
+
+        <a href="https://wa.me/967739367154?text=أريد معرفة تفاصيل استهلاك كرتي" class="btn-yellow" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">
+            لمعرفة تفاصيل الإستخدام لكرت
+        </a>
+
+
+        <div class="footer-text">
+            تطوير <span class="green">عزيز الشرعبي</span> © 2026
+            <span class="yellow">[ عزيز نت نسعى دوماً لإرضاء عملائنا للتواصل 739367154 ]</span>
+        </div>
+
+    </div>
+
+    <script src="js/demo.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        function openLogout() {
+            if (window.name != 'hotspot_status') return true;
+            open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+            window.close();
+            return false;
+        }
+    </script>
+</body>
+
+</html>
